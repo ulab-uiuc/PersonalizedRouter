@@ -1,0 +1,27 @@
+# Config parameters for router data construction:
+api_key: ""
+unified_qa_data_path: 'data/unified_qa_data.csv'
+llm_description_path: 'configs/LLM_Descriptions_v1.json'
+llm_embedding_path: 'configs/llm_description_embedding_v1.pkl'
+saved_router_data_path: 'data/router_user_data_v1.csv'
+#saved_router_data_path: 'data/router_user_data_v2.csv'
+query_response_length: 512
+
+
+
+# Config parameters for graph_router training:
+seed: 1881
+wandb_key: ''
+model_path: 'model_path/best_model.pth'
+train_epoch: 400
+llm_num: 10
+user_num: 9
+llm_family: ['LLaMa','Qwen','Mixtral']
+learning_rate: 0.0003
+weight_decay: 0.0001
+train_mask_rate: 0.5
+batch_size: 1
+num_task: 4
+split_ratio: [0.7, 0.1, 0.2]
+embedding_dim: 16
+edge_dim: 1
