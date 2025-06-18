@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>PersonalizedRouter</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">PersonalizedRouter: A Personalized LLM Router Based on User Preferences</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <span target="_blank">Zhongjie Dai</span><sup>*</sup>,</span>
+                <span class="author-block">
+                  <span target="_blank">Tao Feng</span><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://cs.stanford.edu/~jiaxuan/"   target="_blank">Jiaxuan You</a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">University of Illinois Urbana-Champaign, Urbana, IL, USA</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                  </div>
+
+                  <!-- <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+                    <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+           The growing number of Large Language Models (LLMs) with diverse capabilities and 
+           response styles provides users with a wider range of choices, which presents challenges 
+           in selecting appropriate LLMs, as user preferences vary across performance, cost, and 
+           response style. Current LLM selection methods typically optimize for a single fixed objective, 
+           such as performance, cost, or a trade-off between them, and neglect to learn user preferences 
+           from interaction data that includes task context, queries, candidate LLMs, and user decisions. 
+           To address these limitations in supporting users, we propose PersonalizedRouter, a graph-based 
+           framework, which models multiple users and performs personalized LLM selection by leveraging 
+           interaction data. To capture contextual information between user queries and optimal LLMs, 
+           PersonalizedRouter converts the interaction data into a heterogeneous graph, where the relationships 
+           between different types of nodes are represented by edges. To further assess the adaptability for 
+           multiple users, we design two strategies to simulate different user interaction data: the 
+           multi-cost-efficiency simulation strategy and the LLM-as-a-Judge strategy. The experimental results 
+           from two simulation settings demonstrate that our PersonalizedRouter outperforms existing LLM 
+           selection methods and surpasses the strongest methods by a large margin of 16.97%. Moreover, 
+           PersonalizedRouter exhibits few-shot learning capabilities, effectively adapting to new users 
+           and achieving at least 71.30% of the performance of the fully trained model.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Introduction -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+          In recent years, the rapid growth of model scale and advances in training techniques have fueled 
+          the explosive emergence of large language models (LLMs), offering users diverse choices such as 
+          ChatGPT, Gemini, and LLaMA. Although large-scale language models have shown remarkable performance
+           on many tasks, they tend to be inefficient when dealing with simple problems. In some scenarios, 
+           small-scale language models can achieve comparable performance while requiring fewer resources. 
+           Moreover, different LLMs excel at different tasks, exhibiting varying performance and cost efficiency
+            on the specific application, and some domain-specific expert models achieve superior results in 
+            specialized tasks. In addition to differences in response quality and cost, LLMs also exhibit diverse 
+            response styles, which influence users’ understanding of the query. In multi-user scenarios, users 
+            often have distinct preferences that are difficult to directly model, making it challenging for a 
+            single LLM to serve all users consistently. Therefore, our paper aims to raise attention to this 
+            pressing research question: Given multiple user preferences, how can we design an LLM router that is personalized for each individual user? 
+          </p>
+          <p>
+          To comprehensively evaluate the adaptability of LLM selection methods in multi-user scenarios, 
+          we design two simulation strategies that model diverse user behaviors to generate corresponding 
+          interaction data. Multi-cost-efficiency simulation strategy, which calculates a reward score for 
+          each response based on users' varying preferences between performance and inference cost. LLM-as-a-Judge 
+          strategy, which leverages a set of system prompts to instruct an LLM to simulate different user groups 
+          with various subjective preferences and select the best response from responses.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Introduction -->
+
+<!-- content -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">PersonalizedRouter</h2>
+        <div class="content has-text-justified">
+          <figure>
+            <img src="./static/images/Overview.png" alt="Overview of project">
+          </figure>
+          <p>
+            We first utilize the candidate LLMs to generate responses based on the multi-task dataset. 
+            Next, under two simulation strategies, we obtain the corresponding interaction data. As illustrated 
+            in the middle part, PersonalizedRouter transforms the user interaction data into a graph, where 
+            nodes represent the user, task, query, and LLM, and the edges capture the relationships between different 
+            node types. In the right part, We leverage a GNN to embed both node and edge features, updating and 
+            capturing the user’s hidden features. Ultimately, we select the optimal LLM from the predicted probability distribution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End content -->
+
+<!-- experiments -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experiments</h2>
+        <div class="content has-text-justified">
+          <figure>
+            <img src="./static/images/result_1.png" alt="Overview of project">
+          </figure>
+          <figure>
+            <img src="./static/images/result_2.png" alt="Overview of project">
+          </figure>
+          <p>
+          We conduct experiments using interaction datasets generated by these two strategies. The experiment results 
+          show that PersonalizedRouter significantly outperforms existing LLM selection methods. Our approach achieves 
+          at least a 16.97% advantage compared to the best baseline. To simulate real-world scenarios where new users 
+          continuously join the system, we introduce a new user experimental setting, in which interaction data from new 
+          users are excluded from the training process. The experimental results demonstrate that PersonalizedRouter also 
+          generalizes well to new users, as it outperforms the best baseline by at least 75.00% and achieves 71.30% of
+           the performance of the trained model, validating the effectiveness of our framework.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End experiments -->
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>TODO:BibTex Code</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
