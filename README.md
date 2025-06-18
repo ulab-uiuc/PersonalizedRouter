@@ -1,5 +1,14 @@
 # PersonalizedRouter: A Personalized LLM Router Based on User Preferences
 
+<p align="center">
+    <a href="https://ulab-uiuc.github.io/PersonalizedRouter/">
+        <img alt="Build" src="https://img.shields.io/badge/Project-Page-blue">
+    </a>
+</p>
+
+<p align="center">
+    <a href="https://ulab-uiuc.github.io/PersonalizedRouter/">🌐 Project Page</a> |
+<p>
 
 <!-- ![Method](./figures/model.png) -->
 
