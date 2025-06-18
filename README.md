@@ -4,10 +4,31 @@
     <a href="https://ulab-uiuc.github.io/PersonalizedRouter/">
         <img alt="Build" src="https://img.shields.io/badge/Project-Page-blue">
     </a>
+    <a href="#">
+        <img alt="Build" src="https://img.shields.io/badge/arXiv--red?logo=arxiv">
+    </a>
+    <a href="">
+        <img alt="Build" src="https://img.shields.io/badge/Twitter-black?logo=X">
+    </a>
+    <a href="https://github.com/ulab-uiuc/PersonalizedRouter/blob/master/LICENSE">
+        <img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green">
+    </a>
+    <br>
+    <a href="https://github.com/ulab-uiuc/PersonalizedRouter">
+        <img alt="Build" src="https://img.shields.io/github/stars/ulab-uiuc/PersonalizedRouter">
+    </a>
+    <a href="https://github.com/ulab-uiuc/PersonalizedRouter">
+        <img alt="Build" src="https://img.shields.io/github/forks/ulab-uiuc/PersonalizedRouter">
+    </a>
+    <a href="https://github.com/ulab-uiuc/PersonalizedRouter">
+        <img alt="Build" src="https://img.shields.io/github/issues/ulab-uiuc/PersonalizedRouter">
+    </a>
 </p>
 
 <p align="center">
     <a href="https://ulab-uiuc.github.io/PersonalizedRouter/">🌐 Project Page</a> |
+    <a href="#">📜 arXiv</a> |
+    <a href="#">📮 Twitter Post</a>
 <p>
 
 <!-- ![Method](./figures/model.png) -->
