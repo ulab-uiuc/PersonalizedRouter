@@ -94,6 +94,7 @@ python data_processing/add_user_data_v2.py
 ```
 
 For your convenience, we have provided the pre-generated files in the `data` folder, including all the files mentioned above.
+We also provide a [Hugging Face dataset page](https://huggingface.co/datasets/ulab-ai/personalized_router_bench), where you can directly download the data.
 
 ## 📝Experiments
 
