@@ -1,0 +1,164 @@
+{
+    "Mixtral-8x7B": {
+        "feature": "With a combined size of 56 billion parameters, this model aims to provide stronger language\nmodeling capabilities. Its cost per million tokens is 0.6, reflecting its balance between\nperformance and affordability for more complex tasks.",
+        "input_price": 0.6,
+        "output_price": 0.6,
+        "model": "mistralai/mixtral-8x7b-instruct"
+    },
+    "LLaMA-3.1 (8b)": {
+        "feature": "A variant optimized for speed and efficiency with 8 billion parameters. Its cost per million\ntokens is only 0.2, suggesting that it is designed to handle tasks quickly while being highly\ncost-effective.",
+        "input_price": 0.2,
+        "output_price": 0.2,
+        "model": "meta-llama/llama-3.1-8b-instruct"
+    },
+    "Qwen-2.5 7b": {
+        "feature": "Qwen-2.5-7B features 7 billion parameters and is fine-tuned for instruction-following, dialogue, and task completion. It performs well in interactive settings, making it suitable for a wide range of practical applications.",
+        "input_price": 0.2,
+        "output_price": 0.2,
+        "model": "qwen/qwen-2.5-7b-instruct"
+    },
+    "Gemini 2.5 Flash": {
+        "feature": "Gemini 2.5 Flash is a fast and efficient model designed to handle real-time language tasks with quick turnaround times. With 2.5 billion parameters, it delivers solid performance for lightweight applications, offering a good balance of speed and accuracy for tasks such as conversational AI, content generation, and quick-response systems, making it an excellent choice for performance-critical environments.",
+        "input_price": 2.0,
+        "output_price": 2.0,
+        "model": "google/gemini-2.5-flash"
+    },
+    "Qwen3 Coder 480B A35B": {
+        "feature": "Qwen3 Coder 480B A35B is an extremely large model with 480 billion parameters, engineered for highly specialized coding tasks and advanced problem-solving in programming. Its vast scale and cutting-edge architecture allow it to excel in code generation, debugging, and optimization, making it a top-tier choice for professional developers and complex coding challenges.",
+        "input_price": 2.0,
+        "output_price": 2.0,
+        "model": "qwen/qwen3-coder"
+    },
+    "GPT-4o-mini": {
+        "feature": "GPT-4O Mini is a compact yet highly capable model designed for a variety of language tasks. With optimized performance in smaller parameter sizes, it offers a strong balance between efficiency and accuracy, making it ideal for applications that require fast, high-quality responses without the resource intensity of larger models. Its versatility makes it suitable for both casual and professional use across different domains.",
+        "input_price": 2.0,
+        "output_price": 2.0,
+        "model": "openai/gpt-4o-mini"
+    },
+    "Palmyra-Fin": {
+        "feature": "Palmyra-Fin is a domain-specialized language model tailored for financial applications. It is optimized to understand financial terminology, documents, and data, making it particularly effective for tasks like report analysis, market insights, risk evaluation, and financial question answering. Its fine-tuned expertise allows it to deliver accurate, context-aware outputs in finance-related scenarios.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "Writer/Palmyra-Fin"
+    },
+    "Palmyra-Med": {
+        "feature": "Palmyra-Med is a domain-focused model built for the medical and healthcare sector. Trained with extensive biomedical and clinical data, it excels at interpreting medical texts, assisting with clinical decision support, and providing reliable insights in research and healthcare communication. Its strong specialization ensures high relevance and precision in medical contexts.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "Writer/Palmyra-Med"
+    },
+    "Mistral Small 3.2 (24B)": {
+        "feature": "A compact yet powerful model with 24 billion parameters, designed to strike a balance between versatility and efficiency. It provides strong reasoning and comprehension, capabilities, making it suitable for medium-scale applications at an affordable cost.",
+        "input_price": 0.4,
+        "output_price": 0.4,
+        "model": "mistralai/mistral-small-3.2-24b-instruct"
+    },
+    "Gemma-3 (12B)": {
+        "feature": "A lightweight 12 billion parameter model from Google, tailored for fast inference and practical deployment. It emphasizes low latency and broad generalization,making it an excellent choice for everyday tasks at low cost.",
+        "input_price": 0.2,
+        "output_price": 0.2,
+        "model": "google/gemma-3-12b-it"
+    },
+    "LLaMA-3 (8b)": {
+        "feature": "This is a relatively small-sized model (8 billion parameters) designed for general-purpose\nlanguage tasks. Its low cost per million tokens (0.2) makes it an affordable option for many\napplications requiring quick responses with moderate accuracy.",
+        "input_price": 0.2,
+        "output_price": 0.2,
+        "model": "meta-llama/llama-3-8b-instruct"
+    },
+    "NousResearch": {
+        "feature": "A mid-sized model with 34 billion parameters, suitable for handling moderately complex\nlanguage tasks. Its cost is higher at 0.8 per million tokens, indicating a greater computational\ndemand, likely due to its enhanced capabilities over smaller models.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "nousresearch/nous-hermes-2-mixtral-8x7b-dpo"
+    },
+    "Ministral-8b": {
+        "feature": "A highly efficient model with 8 billion parameters, tailored for fast performance and \noptimized cost-effectiveness. With a cost of just 0.2 per million tokens, it delivers rapid processing\n while maintaining exceptional value for resource usage.",
+        "input_price": 0.2,
+        "output_price": 0.2,
+        "model": "mistralai/ministral-8b"
+    },
+    "Mistral-7b": {
+        "feature": "With 7 billion parameters, Mistral-7b is optimized for lightweight tasks, balancing speed and\nefficiency. Its cost per million tokens is 0.2, making it cost-effective for standard use cases\nwithout the need for complex computations.",
+        "input_price": 0.2,
+        "output_price": 0.2,
+        "model": "mistralai/mistral-7b-instruct-v0.3"
+    },
+    "LLaMA-3 (70b)": {
+        "feature": "This model, at 70 billion parameters, is tailored for high performance with an emphasis on\nefficiency. The cost is 0.9 per million tokens, reflecting its advanced capabilities for a broad\nrange of tasks requiring more computation.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "meta-llama/llama-3-70b-instruct"
+    },
+    "Llama-3.1 (70b)": {
+        "feature": "Large model with 70 billion parameters, likely to offer strong capabilities for various language\ntasks. Its cost is also 0.9 per million tokens, suggesting similar performance and computational\nneeds as other 70b models.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "meta-llama/llama-3.1-70b-instruct"
+    },
+    "Qwen-2 (72b)": {
+        "feature": "With 72 billion parameters, Qwen-2 is among the largest models in the list, designed for\nhigh-complexity tasks. Its cost per million tokens is 0.9, making it comparable to other\nhigh-performance models in terms of both capability and expense.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "qwen/qwen-2-72b-instruct"
+    },
+    "Gemma-3 27B": {
+        "feature": "Gemma-3-27B, with 27 billion parameters, is fine-tuned for instruction and dialogue tasks. It combines strong reasoning ability with fluent generation, making it well-suited for advanced interactive applications.",
+        "input_price": 0.6,
+        "output_price": 0.6,
+        "model": "google/gemma-3-27b-it"
+    },
+    "Llama 4 Scout": {
+        "feature": "Llama 4 Scout is a lightweight variant in the Llama 4 series, optimized for speed and efficiency. It delivers responsive performance in everyday tasks, making it well-suited for real-time dialogue and low-latency applications",
+        "input_price": 0.4,
+        "output_price": 0.4,
+        "model": "meta-llama/llama-4-scout"
+    },
+    "phi-4": {
+        "feature": "Phi-4 is a 14-billion-parameter model focused on high-quality reasoning and language understanding. Built with a compact training dataset, it emphasizes alignment, factuality, and efficient task completion in instruction-driven scenarios.",
+        "input_price": 0.4,
+        "output_price": 0.4,
+        "model": "microsoft/phi-4"
+    },
+    "Mistral Small 3.2 24B": {
+        "feature": "Mistral Small 3.2 24B is a 24-billion-parameter model built for balanced performance and versatility. It handles a wide range of tasks with strong reasoning and generation capabilities, while maintaining efficiency across general and instruction-based applications.",
+        "input_price": 0.4,
+        "output_price": 0.4,
+        "model": "mistralai/mistral-small-3.2-24b-instruct"
+    },
+    "LLaMA-2 (70b)": {
+            "feature": "A larger variant of LLaMA-2, this model has 70 billion parameters, providing advanced capa-\nbilities for complex tasks. Its cost per million tokens is 0.9, indicating its higher computational\ndemand and enhanced performance.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "meta-llama/llama-2-70b-chat"
+    },
+    "LLaMA-2 (7b)": {
+        "feature": "A compact model at 7 billion parameters, it offers similar capabilities and pricing to LLaMA-3\n(7b) at a cost of 0.2 per million tokens. It’s an efficient choice for tasks requiring decent\nperformance without high computational costs.",
+        "input_price": 0.2,
+        "output_price": 0.2,
+        "model": "together_ai/meta-llama/Llama-2-7b-chat-hf"
+    },
+    "LLaMA-3-Turbo (8b)": {
+        "feature": "A variant optimized for speed and efficiency with 8 billion parameters. Its cost per million\ntokens is only 0.2, suggesting that it is designed to handle tasks quickly while being highly\ncost-effective.",
+        "input_price": 0.2,
+        "output_price": 0.2,
+        "model": "together_ai/meta-llama/Meta-Llama-3-8B-Instruct-Turbo"
+    },
+    "LLaMA-3-Turbo (70b)": {
+        "feature": "This model, at 70 billion parameters, is tailored for high performance with an emphasis on\nefficiency. The cost is 0.9 per million tokens, reflecting its advanced capabilities for a broad\nrange of tasks requiring more computation.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "together_ai/meta-llama/Meta-Llama-3-70B-Instruct-Turbo"
+    },
+    "Llama-3.1-Turbo (70b)": {
+        "feature": "Large model with 70 billion parameters, likely to offer strong capabilities for various language\ntasks. Its cost is also 0.9 per million tokens, suggesting similar performance and computational\nneeds as other 70b models.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "together_ai/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+    },
+    "Qwen-1.5 (72b)": {
+        "feature": "With 72 billion parameters, Qwen-1.5 is among the largest models in the list, designed for\nhigh-complexity tasks. Its cost per million tokens is 0.9, making it comparable to other\nhigh-performance models in terms of both capability and expense.",
+        "input_price": 0.9,
+        "output_price": 0.9,
+        "model": "together_ai/Qwen/Qwen1.5-72B-Chat"
+    }
+}

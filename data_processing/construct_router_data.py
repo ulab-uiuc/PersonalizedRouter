@@ -21,40 +21,48 @@ class data_building:
 
 
     def construct_data_with_LLM(self):
-        df = pd.DataFrame(columns=['task_id', 'query','query_embedding', 'ground_truth', 'metric','llm',
-                                   'effect','cost'])
-        count=0
+        df = pd.DataFrame(columns=['task_id', 'query', 'query_embedding', 'ground_truth', 'metric', 'llm',
+                                   'effect', 'cost', 'response'])
+        all_rows = []
         for row in tqdm(self.qa_data.itertuples(), total=len(self.qa_data), desc="Processing queries"):
-            task_id_t=row.task_id
-            query_t=row.query
-            task_description=row.task_description
-            if task_id_t=="multi_news":
+            task_id_t = row.task_id
+            query_t = row.query
+            task_description = row.task_description
+
+            if task_id_t == "multi_news":
                 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
                 tokens = tokenizer.tokenize(query_t)
-                extracted_text = tokens[:3000]
-                query_t = tokenizer.convert_tokens_to_string(extracted_text)
-            # query_t_embedding = get_embedding([query_t])
-            task_description_embedding=get_embedding([task_description])
-            ground_truth_t=row.ground_truth
-            metric_t=row.metric
+                query_t = tokenizer.convert_tokens_to_string(tokens[:3000])
+            query_t_embedding = get_embedding([query_t])
+            task_description_embedding = get_embedding([task_description])
+            ground_truth_t = row.ground_truth
+            metric_t = row.metric
 
-            for a_t in range(len(self.llm_names)):
+            def query_one_model(a_t):
+                llm_t = self.llm_names[a_t]
                 response_t = self.MyLLMEngine.get_llm_response(query=query_t, llm_idx=a_t)
-                # reward_t = self.MyLLMEngine.eval(prediction=response_t, ground_truth=ground_truth_t, metric=metric_t)
-                # cost_t = self.MyLLMEngine.compute_cost(llm_idx=a_t, input_text=query_t, output_size=self.config['query_response_length'])
-                llm_t=self.llm_names[a_t]
-                # new_row = {'task_id':task_id_t,'task_description':task_description,'task_description_embedding':task_description_embedding,'query':query_t,'query_embedding':query_t_embedding, 'ground_truth':ground_truth_t, 'metric':metric_t,
-                #            'llm':llm_t,'effect':reward_t,'cost':cost_t,'response':response_t}
-                new_row = {'task_id': task_id_t, 'task_description': task_description,
-                           'task_description_embedding': task_description_embedding, 'query': query_t,
-                           'ground_truth': ground_truth_t, 'metric': metric_t,
-                           'llm': llm_t, 'response': response_t}
-                df = df._append(new_row, ignore_index=True)
-                count+=1
+                reward_t = self.MyLLMEngine.eval(prediction=response_t, ground_truth=ground_truth_t, metric=metric_t)
+                cost_t = self.MyLLMEngine.compute_cost(llm_idx=a_t, input_text=query_t, output_size=self.config['query_response_length'])
+                return {
+                    'task_id': task_id_t,
+                    'task_description': task_description,
+                    'task_description_embedding': task_description_embedding,
+                    'query': query_t,
+                    'query_embedding': query_t_embedding,
+                    'reward': reward_t,
+                    'cost': cost_t,
+                    'ground_truth': ground_truth_t,
+                    'metric': metric_t,
+                    'llm': llm_t,
+                    'response': response_t
+                }
 
-        # Normalize cost according to task
+            with ThreadPoolExecutor(max_workers=1) as executor:
+                results = list(executor.map(query_one_model, range(len(self.llm_names))))
+                all_rows.extend(results)
+
+        df = pd.DataFrame(all_rows)
         df['cost'] = df.groupby('task_id')['cost'].transform(lambda x: (x - x.min()) / (x.max() - x.min()))
-
         df.to_csv(self.config['saved_router_data_path'], index=False)
         llm_description_embedding = get_embedding(self.all_llm_description)
         savepkl(llm_description_embedding, self.config['llm_embedding_path'])

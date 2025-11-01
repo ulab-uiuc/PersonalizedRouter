@@ -163,6 +163,20 @@ class GNN_prediction:
                 random_mask = random_mask.to(torch.bool)
                 mask = torch.where(mask & random_mask, torch.tensor(False, dtype=torch.bool), mask)
                 mask = mask.bool()
+                
+                #-------large scale setting----------
+                # zero_drop_prob = self.config["zero_drop_prob"]
+                # seven_drop_prob = self.config["seven_drop_prob"]
+                #
+                # n = mask.size(0)
+                # idx_tensor = torch.arange(n, device=mask.device)
+                #
+                # zero_mask_condition = (idx_tensor % 10 == 0) & mask
+                # zero_random_mask = torch.rand(n, device=mask.device) < zero_drop_prob
+                # seven_mask_condition = (idx_tensor % 10 == 7) & mask
+                # seven_random_mask = torch.rand(n, device=mask.device) < seven_drop_prob
+                # mask[zero_mask_condition & zero_random_mask] = False
+                # mask[seven_mask_condition & seven_random_mask] = False
 
                 edge_can_see = (~mask) & self.train_mask
 

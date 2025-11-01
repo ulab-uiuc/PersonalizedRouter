@@ -7,6 +7,7 @@ import pandas as pd
 import json
 import re
 import yaml
+import gc
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
@@ -17,6 +18,9 @@ class graph_router_prediction:
         self.data_df = pd.read_csv(router_data_path)
         self.llm_description = loadjson(llm_path)
         self.llm_names = list(self.llm_description.keys())
+        unique_llms = self.data_df['llm'].unique()
+        llm_to_idx = {llm: idx for idx, llm in enumerate(unique_llms)}
+        self.llm_list = self.data_df['llm'].map(llm_to_idx).tolist()
         self.num_llms=len(self.llm_names)
         self.num_users = config['user_num']
         self.num_unique_query=int(len(self.data_df) / (self.num_llms * self.num_users))
@@ -101,45 +105,33 @@ class graph_router_prediction:
 
 
     def prepare_data_for_GNN(self):
-        query_embedding_list_raw=self.data_df['query_embedding'].tolist()
-        task_embedding_list_raw = self.data_df['task_description_embedding'].tolist()
-        self.query_list=np.array(self.data_df['query'].tolist())
-        self.query_embedding_list= []
-        self.task_embedding_list= []
-        for inter in query_embedding_list_raw:
-            inter=re.sub(r'\s+', ', ', inter.strip())
-            try:
-                inter=json.loads(inter)
-            except:
-                inter = inter.replace("[[,", "[[")
-                inter = json.loads(inter)
-            self.query_embedding_list.append(inter[0])
+            df = self.data_df
+            self.query_list = df['query'].values
+            first_idx = df.drop_duplicates(subset=['query'], keep='first').index.to_numpy()
+            def parse_vec_like_before(s: str):
+                s = (s or "").strip()
+                s1 = re.sub(r'\s+', ', ', s)
+                try:
+                    arr = json.loads(s1)
+                except Exception:
+                    s2 = s1.replace("[[,", "[[").replace(", ,", ", ")
+                    arr = json.loads(s2)
+                arr = np.array(arr, dtype=np.float32)
+                if arr.ndim > 1:
+                    arr = arr[0]
+                return arr.astype(np.float32)
 
-        for inter in task_embedding_list_raw:
-            inter=re.sub(r'\s+', ', ', inter.strip())
-            try:
-                inter=json.loads(inter)
-            except:
-                inter = inter.replace("[[,", "[[")
-                inter = json.loads(inter)
-            self.task_embedding_list.append(inter[0])
-
-        unique_dict = {}
-        for idx, item in enumerate(self.query_list):
-            item_tuple = tuple(item)
-            if item_tuple not in unique_dict:
-                unique_dict[item_tuple] = idx
-        unique_query_embedding_list = np.array([self.query_embedding_list[idx] for idx in unique_dict.values()])
-        unique_task_embedding_list = np.array(
-            [self.task_embedding_list[idx] for idx in unique_dict.values()])
-        self.query_embedding_list = unique_query_embedding_list
-        self.task_embedding_list = unique_task_embedding_list
-
-        self.user_embedding= np.eye(self.num_users)
-
-        self.effect_list=np.array(self.data_df['effect'].tolist())
-        self.cost_list=np.array(self.data_df['cost'].tolist())
-        self.answer_list = np.array(self.data_df['best_answer'].tolist())
+            self.query_embedding_list = np.vstack(
+                [parse_vec_like_before(df.at[i, 'query_embedding']) for i in first_idx]
+            ).astype(np.float32)
+            self.task_embedding_list = np.vstack(
+                [parse_vec_like_before(df.at[i, 'task_description_embedding']) for i in first_idx]
+            ).astype(np.float32)
+            self.user_embedding = np.eye(self.num_users, dtype=np.float32)
+            self.effect_list = df['effect'].to_numpy(dtype=np.float32)
+            self.cost_list = df['cost'].to_numpy(dtype=np.float32)
+            self.answer_list = df['best_answer'].to_numpy(dtype=np.float32)
+            gc.collect()
 
 
 
