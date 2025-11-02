@@ -52,7 +52,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">PersonalizedRouter: A Personalized LLM Router Based on User Preferences</h1>
+            <h1 class="title is-1 publication-title">PersonalizedRouter: Personalized LLM Routing via Graph-based User Preference Modeling</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -123,23 +123,23 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           The growing number of Large Language Models (LLMs) with diverse capabilities and 
-           response styles provides users with a wider range of choices, which presents challenges 
-           in selecting appropriate LLMs, as user preferences vary across performance, cost, and 
-           response style. Current LLM selection methods typically optimize for a single fixed objective, 
-           such as performance, cost, or a trade-off between them, and neglect to learn user preferences 
-           from interaction data that includes task context, queries, candidate LLMs, and user decisions. 
-           To address these limitations in supporting users, we propose PersonalizedRouter, a graph-based 
-           framework, which models multiple users and performs personalized LLM selection by leveraging 
-           interaction data. To capture contextual information between user queries and optimal LLMs, 
-           PersonalizedRouter converts the interaction data into a heterogeneous graph, where the relationships 
-           between different types of nodes are represented by edges. To further assess the adaptability for 
-           multiple users, we design two strategies to simulate different user interaction data: the 
-           multi-cost-efficiency simulation strategy and the LLM-as-a-Judge strategy. The experimental results 
-           from two simulation settings demonstrate that our PersonalizedRouter outperforms existing LLM 
-           selection methods and surpasses the strongest methods by a large margin of 16.97%. Moreover, 
-           PersonalizedRouter exhibits few-shot learning capabilities, effectively adapting to new users 
-           and achieving at least 71.30% of the performance of the fully trained model.
+           The growing number of Large Language Models (LLMs) with diverse capabilities and response styles provides
+           users with a wider range of choices, which presents challenges in selecting appropriate LLMs, as user
+           preferences vary in terms of performance, cost, and response style. Current LLM selection
+           methods typically optimize for a single fixed objective, such as performance, cost, or a trade-off between
+           them, and fail to learn individual user preferences from interaction data. To address these limitations in
+           supporting users, we propose PersonalizedRouter, a graph-based framework that models diverse user profiles
+           and performs personalized LLM selection by leveraging interaction data that includes task context, queries,
+           candidate LLMs, and user decisions. To capture contextual information between user queries and optimal LLMs,
+           PersonalizedRouter converts the interaction data into a heterogeneous graph, where the relationships between
+           different types of nodes are represented by edges. To further assess the adaptability for multiple users, we
+           design two strategies to simulate different user interaction data: the multi-cost-efficiency simulation
+           strategy and the LLM-as-a-Judge strategy. The experimental results from two simulation settings
+           demonstrate that our PersonalizedRouter outperforms existing LLM selection methods and surpasses the strongest 
+           methods by a large margin of 15.38% and 9.83%. In a larger-scale setting with 1000 users, it consumes less
+           time while still outperforming all baselines, exceeding the best method by 16.19% and 59.69% in the two
+           scenarios, respectively. Moreover, PersonalizedRouter exhibits few-shot learning capabilities, effectively
+           adapting to new users and new LLMs, achieving 64.81% and 85.80% of the fully trained model’s performance, respectively.
           </p>
         </div>
       </div>
@@ -216,21 +216,63 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Experiments</h2>
         <div class="content has-text-justified">
+          <p>
+          We compare PersonalizedRouter with other representative baseline methods under two different simulation
+          strategies. All models are trained under the general experimental setting, which involves 10 LLMs and 9 users,
+          aiming to evaluate their ability to adapt to new queries from existing users.
+          </p>
           <figure>
-            <img src="./static/images/result_part1.png" alt="Overview of project">
-          </figure>
-          <figure>
-            <img src="./static/images/result_part2.png" alt="Overview of project">
+            <img src="./static/images/table3.png" alt="Overview of project">
           </figure>
           <p>
-          We conduct experiments using interaction datasets generated by these two strategies. The experiment results 
-          show that PersonalizedRouter significantly outperforms existing LLM selection methods. Our approach achieves 
-          at least a 16.97% advantage compared to the best baseline. To simulate real-world scenarios where new users 
-          continuously join the system, we introduce a new user experimental setting, in which interaction data from new 
-          users are excluded from the training process. The experimental results demonstrate that PersonalizedRouter also 
-          generalizes well to new users, as it outperforms the best baseline by at least 75.00% and achieves 71.30% of
-           the performance of the trained model, validating the effectiveness of our framework.
+          To further assess the scalability of the router, we conducted experiments in a large-scale scenario.
+          Under the multi-cost-efficiency simulation strategy, we evaluated 10 LLMs across 1,000 users. Under
+          the LLM-as-a-Judge strategy, to further mitigate the bias of relying on a single LLM as a judge, we
+          considered three different LLMs, and for each model, we applied two types of instruction prompts, resulting
+          in six distinct judge configurations. For each configuration, 200 users were simulated, leading to a total
+          of 1,200 simulated user preferences. In other words, each user profile is evaluated under six distinct
+          judge configurations, effectively yielding six different user perspectives. Ultimately, the combination of
+          200 user profiles with six judge configurations results in a total of 1,200 simulated user samples. Our model
+          outperforms all baselines under both simulation strategies. Specifically, under the two simulation strategies,
+          our model outperforms the strongest baseline by 16.19% and 59.69%, respectively. Moreover, the results
+          indicate that our model achieves better performance while requiring less computation time.
           </p>
+          <figure>
+            <img src="./static/images/table4.png" alt="Overview of project">
+          </figure>
+          <p>
+          To more intuitively demonstrate the scalability of PersonalizedRouter, we compare the results from two experiments
+          conducted at different scales. The results provided in Table 5 indicate that
+          PersonalizedRouter exhibits stable performance, with 5.2% drop relative to the Oracle.
+          </p>
+          <figure>
+            <img src="./static/images/table5.png" alt="Overview of project">
+          </figure>
+          <p>
+          To evaluate the ability of different LLM selection methods to generalize to new users, we also train all models
+          under the new user experimental setting. Specifically, we treat the first three users as new users and the remaining six as known users for model training.
+          </p>
+          <figure>
+            <img src="./static/images/table6.png" alt="Overview of project">
+          </figure>
+          <p>
+          To evaluate the generalization capability of PersonalizedRouter to new LLMs, we conduct experiments under
+          the new LLM experimental setting. Similar to the generalization to new users' settings,
+          the model is trained on data from the first 10 LLMs, while the remaining 5 LLMs are treated as an auxiliary dataset for evaluation.
+          </p>
+          <figure>
+            <img src="./static/images/table7.png" alt="Overview of project">
+          </figure>
+          <p>
+          Although simulated users can partially validate whether the router is capable of modeling latent user preferences,
+          they still differ from real users with diverse preferences. To further verify whether the router is effective in
+          multiple real-user settings, we collected a small-scale human interaction dataset for experimentation. Specifically,
+          we recruited 40 users and provided them with 80 queries. Each query was answered by 10 LLMs, and users selected the
+          response that best aligned with their preference.
+          </p>
+          <figure>
+            <img src="./static/images/table8.png" alt="Overview of project">
+          </figure>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-# PersonalizedRouter: A Personalized LLM Router Based on User Preferences
+# PersonalizedRouter: Personalized LLM Routing via Graph-based User Preference Modeling
 
 <p align="center">
     <a href="https://ulab-uiuc.github.io/PersonalizedRouter/">
@@ -62,7 +62,7 @@ pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -
 
 ```
 ### Notation
-In the project files, the suffix `v1` refers to the `Multi-cost-efficiency Simulation Strategy` described in the paper, while `v2` refers to the `LLM-as-a-Judge Strategy`.
+In the project files, the suffix `v1` refers to the `Multi-cost-efficiency Simulation Strategy` described in the paper, while `v2` refers to the `LLM-as-a-Judge Strategy`, and `large` denotes the large-scale setting.
 
 ### Dataset Preparation 
 
@@ -93,7 +93,7 @@ or
 python data_processing/add_user_data_v2.py
 ```
 
-For your convenience, we have provided the pre-generated files in the `data` folder, including all the files mentioned above.
+For your convenience, we have provided the pre-generated files in the `data` folder, including most files mentioned above.
 We also provide a [Hugging Face dataset page](https://huggingface.co/datasets/ulab-ai/personalized_router_bench), where you can directly download the data.
 
 ## 📝Experiments
