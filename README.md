@@ -41,7 +41,7 @@
 ## 📝 Message
 
 
-**[2025.2]** 🧩 **PersonalizedRouter** has been integrated into **[LLMRouter](https://github.com/ulab-uiuc/LLMRouter)**. You can now experience PersonalizedRouter directly in the unified LLMRouter framework. We welcome everyone to try PersonalizedRouter in LLMRouter!
+**[2025.02]** 🧩 **PersonalizedRouter** has been integrated into **[LLMRouter](https://github.com/ulab-uiuc/LLMRouter)**. You can now experience PersonalizedRouter directly in the unified LLMRouter framework. We welcome everyone to try PersonalizedRouter in LLMRouter!
 
 **[2025.12]** 🎉 We open-sourced **[LLMRouter](https://github.com/ulab-uiuc/LLMRouter)**, a unified and extensible framework for training and evaluating **single-round / multi-round / agentic / personalized LLM routers**. LLMRouter aims to reduce duplicated engineering effort and enable fair comparison across different routing methods. We warmly welcome the community to integrate and benchmark their own routers!
 
