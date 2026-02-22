@@ -1,10 +1,10 @@
-# PersonalizedRouter: Personalized LLM Routing via Graph-based User Preference Modeling
+﻿# PersonalizedRouter: Personalized LLM Routing via Graph-based User Preference Modeling
 
 <p align="center">
     <a href="https://ulab-uiuc.github.io/PersonalizedRouter/">
         <img alt="Build" src="https://img.shields.io/badge/Project-Page-blue">
     </a>
-    <a href="#">
+    <a href="https://arxiv.org/abs/2511.16883">
         <img alt="Build" src="https://img.shields.io/badge/arXiv--red?logo=arxiv">
     </a>
     <a href="">
@@ -27,7 +27,7 @@
 
 <p align="center">
     <a href="https://ulab-uiuc.github.io/PersonalizedRouter/">🌐 Project Page</a> |
-    <a href="#">📜 arXiv</a> |
+    <a href="https://arxiv.org/abs/2511.16883">📜 arXiv</a> |
     <a href="#">📮 Twitter Post</a>
 <p>
 
@@ -38,6 +38,15 @@
 </div>
 
 
+## 📝 Message
+
+
+**[2025.2]** 🧩 **PersonalizedRouter** has been integrated into **[LLMRouter](https://github.com/ulab-uiuc/LLMRouter)**. You can now experience PersonalizedRouter directly in the unified LLMRouter framework. We welcome everyone to try PersonalizedRouter in LLMRouter!
+
+**[2025.12]** 🎉 We open-sourced **[LLMRouter](https://github.com/ulab-uiuc/LLMRouter)**, a unified and extensible framework for training and evaluating **single-round / multi-round / agentic / personalized LLM routers**. LLMRouter aims to reduce duplicated engineering effort and enable fair comparison across different routing methods. We warmly welcome the community to integrate and benchmark their own routers!
+
+
+**[2025.01]** ✅ **PersonalizedRouter** is accepted for TMLR 2025.
 
 
 ## 🛠️Preliminary
@@ -107,3 +116,16 @@ Run experiments and print/save evaluation results on metrics Performance, Cost, 
 ```bash
 python run_exp.py --config_file [config]
 ```
+
+## Citation
+
+```bibtex
+@inproceedings{dai2025personalizedrouter,
+  title={PersonalizedRouter: Personalized LLM Routing via Graph-based User Preference Modeling},
+  author={Zhongjie Dai and Tao Feng and Jiaxuan You},
+  journal={Transactions on Machine Learning Research},
+  year={2025}
+}
+```
+
+
